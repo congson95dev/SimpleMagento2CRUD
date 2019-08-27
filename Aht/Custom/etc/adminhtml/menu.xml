@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Aht_Custom::main_menu" title="AHT Custom"
+             module="Aht_Custom" sortOrder="20"
+             resource="Aht_Custom::department" />
+        <!-- Banner -->
+        <add id="Aht_Custom::add_department" title="Add department"
+             module="Aht_Custom" sortOrder="1" parent="Aht_Custom::main_menu"
+             action="department/manage/add" resource="Aht_Custom::add_department" />
+        <add id="Aht_Custom::manage_department" title="Manage department"
+             module="Aht_Custom" sortOrder="2" parent="Aht_Custom::main_menu"
+             action="department/manage/index" resource="Aht_Custom::manage_department" />
+
+        <!-- Slide -->
+        <add id="Aht_Custom::add_employee" title="Add employee"
+             module="Aht_Custom" sortOrder="3" parent="Aht_Custom::main_menu"
+             action="employee/manage/add" resource="Aht_Custom::add_employee" />
+        <add id="Aht_Custom::manage_employee" title="Manage employee"
+             module="Aht_Custom" sortOrder="4" parent="Aht_Custom::main_menu"
+             action="employee/manage/index" resource="Aht_Custom::manage_employee" />
+    </menu>
+</config>
