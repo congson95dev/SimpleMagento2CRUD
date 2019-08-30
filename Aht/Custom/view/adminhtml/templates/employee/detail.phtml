@@ -1,0 +1,66 @@
+<?php
+
+$employee = $block->viewEmployee();
+$departments = $block->getDepartments();
+?>
+
+<form class="employee-detail-form" 
+	action="<?= $employee ? $block->getEditUrl($employee->getId()) : $block->getAddUrl(); ?>" 
+	method="post">
+	<h1><?= $employee ? 'Edit Employee' : 'Add Employee'?></h1>
+
+	<span>Department Name:</span><br>
+	<select name="department_id">
+		<?php foreach ($departments as $department): ?>
+			<option 
+			value="<?= $department->getId() ?>"
+			<?= 
+				$employee ? (($employee->getDepartmentId() == $department->getId()) ? 'selected' : '') : '' 
+			?>
+			>
+				<?= $department->getName() ?>
+			</option>
+		<?php endforeach; ?>
+	</select><br>
+	
+	<span>Employee First Name:</span><br>
+	<input type="text" name="first_name" placeholder="First Name" value="<?= $employee ? $employee->getFirstName() : ''; ?>"><br>
+
+	<span>Employee Last Name:</span><br>
+	<input type="text" name="last_name" placeholder="Last Name" value="<?= $employee ? $employee->getLastName() : ''; ?>"><br>
+
+	<span>Email:</span><br>
+	<input type="text" name="email" placeholder="Email" value="<?= $employee ? $employee->getEmail() : ''; ?>"><br>
+
+	<span>Service Year:</span><br>
+	<input type="text" name="service_years" placeholder="Service Year" value="<?= $employee ? $employee->getServiceYears() : ''; ?>"><br>
+
+	<span>Dob:</span><br>
+	<input type="text" name="dob" placeholder="Dob" value="<?= $employee ? $employee->getDob() : ''; ?>"><br>
+
+	<span>Salary:</span><br>
+	<input type="text" name="salary" placeholder="Salary" value="<?= $employee ? $employee->getSalary() : ''; ?>"><br>
+
+	<span>VAT:</span><br>
+	<input type="text" name="vat_number" placeholder="VAT" value="<?= $employee ? $employee->getVatNumber() : ''; ?>"><br>
+
+	<span>Note:</span><br>
+	<input type="text" name="note" placeholder="Note" value="<?= $employee ? $employee->getNote() : ''; ?>"><br>
+
+	<input type="submit" value="Save">
+</form>
+
+<style>
+	.employee-detail-form{
+		border: 1px solid;
+	    width: 30%;
+	    padding: 15px;
+	}
+	.employee-detail-form input{
+		margin: 10px 0;
+	}
+	.employee-detail-form select{
+		margin: 10px 0;
+		width: 47%;
+	}
+</style>

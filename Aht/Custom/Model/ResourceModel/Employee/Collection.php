@@ -1,6 +1,6 @@
 <?php
 
-namespace Aht\Custom\Model\ResourceModel\Department;
+namespace Aht\Custom\Model\ResourceModel\Employee;
 
 use Magento\Eav\Model\Entity\Collection\AbstractCollection;
 

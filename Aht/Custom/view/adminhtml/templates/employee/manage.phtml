@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @var \Aht\Custom\Block\Adminhtml\Employee\Manage $block
+ */
+
+$employees = $block->getEmployees();
+
+?>
+<button class="add-employee"><a href="<?= $block->getAddUrl(); ?>">Add New</a></button>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Department Name</th>
+		<th>Email</th>
+		<th>Employee Name</th>
+		<th>Service Year</th>
+		<th>Dob</th>
+		<th>Salary</th>
+		<th>VAT</th>
+		<th>Note</th>
+		<th>Action</th>
+	</tr>
+<?php foreach ($employees as $employee): ?>
+	<tr>
+		<td><?= $employee->getId(); ?></td>
+		<td><?= $employee->getDepartmentName(); ?></td>
+		<td><?= $employee->getEmail(); ?></td>
+		<td><?= $employee->getFirstName() . ' ' . $employee->getLastName(); ?></td>
+		<td><?= $employee->getServiceYears(); ?></td>
+		<td><?= $employee->getDob(); ?></td>
+		<td><?= $employee->getSalary(); ?></td>
+		<td><?= $employee->getVatNumber(); ?></td>
+		<td><?= $employee->getNote(); ?></td>
+		<td>
+			<a href="<?= $block->getDetailUrl($employee->getId()); ?>">Edit</a>
+			<a href="<?= $block->getDeleteUrl($employee->getId()); ?>">Delete</a>
+		</td>
+	</tr>
+<?php endforeach; ?>
+</table>
+
+<style>
+	.add-employee{
+		margin-bottom: 10px;
+	}
+	table{
+		text-align: center;
+	}
+	table tr th,
+	table tr td{
+		border: 1px solid black;
+		padding: 10px;
+	}
+</style>

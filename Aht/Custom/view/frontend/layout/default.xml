@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.start">
+            <block class="Aht\Custom\Block\Frontend\Index"
+                   name="custom.frontend.index"
+                   template="Aht_Custom::index.phtml"
+            />
+        </referenceContainer>
+
+        <move element="custom.frontend.index" destination="columns.top" before="page.messages" />
+    </body>
+</page>

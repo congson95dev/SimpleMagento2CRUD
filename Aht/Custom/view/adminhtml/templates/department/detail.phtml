@@ -1,7 +1,24 @@
 <?php
 
-/**
- * @var \Aht\Custom\Block\Adminhtml\Department\Edit $block
- */
+$department = $block->viewDepartment();
+?>
 
-echo '123';
+<form class="department-detail-form" action="<?= $department ? $block->getEditUrl($department->getId()) : $block->getAddUrl(); ?>" method="post">
+	<h1><?= $department ? 'Edit Department' : 'Add Department'?></h1>
+	<span>Department Name:</span>
+	<br>
+	<input type="text" name="name" placeholder="Department Name" value="<?= $department ? $department->getName() : ''; ?>">
+	<br>
+	<input type="submit" value="Save">
+</form> 
+
+<style>
+	.department-detail-form{
+		border: 1px solid;
+	    width: 30%;
+	    padding: 15px;
+	}
+	.department-detail-form input{
+		margin: 10px 0;
+	}
+</style>

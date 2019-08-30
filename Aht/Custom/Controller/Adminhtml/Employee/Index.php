@@ -1,12 +1,12 @@
 <?php
 
-namespace Aht\Custom\Controller\Adminhtml\Manage;
+namespace Aht\Custom\Controller\Adminhtml\Employee;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
 
-class Add extends \Magento\Backend\App\Action
+class Index extends \Magento\Backend\App\Action
 {
     public function __construct(
         Context $context,
@@ -20,7 +20,7 @@ class Add extends \Magento\Backend\App\Action
     
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Aht_Custom::manage_department');
+        return $this->_authorization->isAllowed('Aht_Custom::manage_employee');
     }
 
     public function execute()

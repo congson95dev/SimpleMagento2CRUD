@@ -19,4 +19,19 @@ class Manage extends \Magento\Backend\Block\Template
 		$result = $department->getCollection();
 		return $result;
 	}
+
+	public function getAddUrl()
+    {
+        return $this->getUrl('department/manage/add');
+    }
+
+    public function getDetailUrl($id)
+    {
+        return $this->getUrl('department/manage/detail/id/'.$id);
+    }
+
+    public function getDeleteUrl($id)
+    {
+        return $this->getUrl('department/manage/delete/id/'.$id);
+    }
 }

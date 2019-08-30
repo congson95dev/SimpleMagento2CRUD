@@ -6,11 +6,8 @@
 
 $departments = $block->getDepartments();
 $adminUrl = $block->getBaseUrl() . $this->helper('Magento\Backend\Helper\Data')->getAreaFrontName();
-$addlUrl = $adminUrl . '/department/manage/add';
-$detailUrl = $adminUrl . '/department/manage/detail';
-$deleteUrl = $adminUrl . '/department/manage/delete';
 ?>
-<button class="add-department"><a href="<?= $addlUrl ?>">Add New</a></button>
+<button class="add-department"><a href="<?= $block->getAddUrl(); ?>">Add New</a></button>
 <table>
 	<tr>
 		<th>ID</th>
@@ -22,8 +19,8 @@ $deleteUrl = $adminUrl . '/department/manage/delete';
 		<td><?= $department->getId(); ?></td>
 		<td><?= $department->getName(); ?></td>
 		<td>
-			<a href="<?= $detailUrl . '/id/' . $department->getId(); ?>">Edit</a>
-			<a href="<?= $deleteUrl . '/id/' . $department->getId(); ?>">Delete</a>
+			<a href="<?= $block->getDetailUrl($department->getId()); ?>">Edit</a>
+			<a href="<?= $block->getDeleteUrl($department->getId()); ?>">Delete</a>
 		</td>
 	</tr>
 <?php endforeach; ?>

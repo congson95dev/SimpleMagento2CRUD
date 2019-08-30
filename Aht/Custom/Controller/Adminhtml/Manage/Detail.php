@@ -3,19 +3,19 @@
 namespace Aht\Custom\Controller\Adminhtml\Manage;
 
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
+use Aht\Custom\Model\DepartmentFactory;
 
 class Detail extends \Magento\Backend\App\Action
 {
     public function __construct(
         Context $context,
-        Registry $coreRegistry,
-        PageFactory $resultPageFactory
+        PageFactory $resultPageFactory,
+        DepartmentFactory $departmentFactory
     ) {
         parent::__construct($context);
-        $this->_coreRegistry = $coreRegistry;
         $this->_resultPageFactory = $resultPageFactory;
+        $this->_departmentFactory = $departmentFactory;
     }
 
     protected function _isAllowed()
@@ -25,9 +25,7 @@ class Detail extends \Magento\Backend\App\Action
 
     public function execute()
     {
-        die('1');
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->_resultPageFactory->create();
-        return $resultPage;
+        $result = $this->_resultPageFactory->create();
+        return $result;
     }
 }
